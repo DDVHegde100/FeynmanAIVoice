@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pyttsx3
 import tkinter as tk
+import datetime
 
 # Initialize recognizer and text-to-speech engine
 recognizer = sr.Recognizer()
@@ -40,6 +41,21 @@ def process_command(command):
     elif "turn off the pump" in command:
         pump_status.set("Pump: OFF")
         speak_response("Turning off the pump")
+    elif "what is your name" in command:
+        speak_response("My name is Jarvis.")
+    elif "how are you" in command:
+        speak_response("I'm an AI, so I don't have feelings, but I'm here to help you!")
+    elif "what time is it" in command:
+        now = datetime.datetime.now().strftime("%H:%M")
+        speak_response(f"The current time is {now}")
+    elif "tell me a joke" in command:
+        speak_response("Why did the scarecrow win an award? Because he was outstanding in his field!")
+    elif "who created you" in command:
+        speak_response("I was created by my user as a smart home assistant.")
+    elif "what can you do" in command:
+        speak_response("I can control the lights, pump, and engage in basic conversation. I'm here to assist you!")
+    elif "thank you" in command:
+        speak_response("You're welcome!")
     else:
         speak_response("Sorry, I did not understand that command.")
 
